@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface RecipeService {
-    public void putRecipe(Recipe recipe) throws IncorrectArgumentException;
+    void putRecipe(Recipe recipe) throws IncorrectArgumentException;
 
-    public Recipe getRecipeByID (Integer recipeID) throws IdNotFoundException;
+    Recipe getRecipeByID (Integer id) throws IdNotFoundException;
     }

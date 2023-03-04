@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/recipe")
 public class RecipeController {
-    private RecipeService recipeService;
+    private final RecipeService recipeService;
 
     public RecipeController (RecipeService recipeService) {
         this.recipeService = recipeService;
@@ -21,7 +21,7 @@ public class RecipeController {
     }
 
     @GetMapping("/get")
-    public void getRecipe (@RequestParam int recipeId) throws IdNotFoundException {
-        recipeService.getRecipeByID(recipeId);
+    public Recipe getRecipe (@RequestParam int id) throws IdNotFoundException {
+        return recipeService.getRecipeByID(id);
     }
 }
