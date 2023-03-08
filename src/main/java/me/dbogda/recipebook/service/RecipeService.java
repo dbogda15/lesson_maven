@@ -1,13 +1,19 @@
 package me.dbogda.recipebook.service;
 
 import me.dbogda.recipebook.model.Recipe;
-import me.dbogda.recipebook.service.exceptions.IdNotFoundException;
-import me.dbogda.recipebook.service.exceptions.IncorrectArgumentException;
 import org.springframework.stereotype.Service;
+
+import java.util.Map;
 
 @Service
 public interface RecipeService {
-    void putRecipe(Recipe recipe) throws IncorrectArgumentException;
+    int putRecipe(Recipe recipe);
 
-    Recipe getRecipeByID (Integer id) throws IdNotFoundException;
-    }
+    String getRecipeByID (Integer id);
+
+    String deleteRecipe(int id);
+
+    Recipe editRecipe(int id, Recipe recipe);
+
+    Map<Integer, Recipe> getAllRecipes();
+}
