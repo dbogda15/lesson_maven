@@ -8,7 +8,7 @@ import java.util.TreeMap;
 
 @org.springframework.stereotype.Service
 public class IngredientsServiceImpl implements IngredientsService {
-    public static Map<Integer,Ingredient> ingredients = new TreeMap<>();
+    public static Map<Integer, Ingredient> ingredients = new TreeMap<>();
     private Integer id = 0;
 
     @Override
@@ -22,17 +22,17 @@ public class IngredientsServiceImpl implements IngredientsService {
     @Override
     public Ingredient getIngredientByID(Integer id) {
         if (ingredients.get(id) == null) {
-            System.out.println("There is not ingredients with id= " + id);
+            return null;
         }
         return ingredients.get(id);
     }
 
     @Override
-    public Ingredient editIngredient (int id, Ingredient ingredient) {
-           if (ingredients.containsKey(id)) {
-               ingredients.put(id, ingredient);
-               return ingredient;
-           }
+    public Ingredient editIngredient(int id, Ingredient ingredient) {
+        if (ingredients.containsKey(id)) {
+            ingredients.put(id, ingredient);
+            return ingredient;
+        }
         return null;
     }
 
@@ -46,7 +46,7 @@ public class IngredientsServiceImpl implements IngredientsService {
     }
 
     @Override
-    public Map<Integer, Ingredient> getAllIngredients () {
+    public Map<Integer, Ingredient> getAllIngredients() {
         return ingredients;
     }
 }

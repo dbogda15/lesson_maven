@@ -1,11 +1,13 @@
 package me.dbogda.recipebook.controllers;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.time.LocalDate;
 
 
 @RestController
+@Tag(name = "Информация о студенте", description = "Краткая информация о студенте и о проекте")
 public class FirstController {
 
     @GetMapping("/")
